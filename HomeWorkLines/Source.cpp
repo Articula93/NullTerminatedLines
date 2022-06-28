@@ -1,4 +1,4 @@
-#include<iostream>
+Ôªø#include<iostream>
 #include<Windows.h>
 #include<cstring>
 using namespace std;
@@ -15,14 +15,14 @@ void main()
 	const int SIZE = 256;
 	SetConsoleCP(1251);
 	char str[SIZE]{};
-	cout << "¬‚Â‰ËÚÂ ÚÂÍÒÚ: (ÌÂ ·ÓÎ¸¯Â 256 ÒËÏ‚ÓÎÓ‚) ";
+	cout << "–í–≤–µ–¥–∏—Ç–µ —Ç–µ–∫—Å—Ç: (–Ω–µ –±–æ–ª—å—à–µ 256 —Å–∏–º–≤–æ–ª–æ–≤) ";
 	cin.getline(str, SIZE);
 	stringLength(str);
 	cout << endl;
-	cout << "¬‚Â‰ËÚÂ ÚÂÍÒÚ ‰Îˇ ÔÂÂ‚Ó‰‡ ËÁ ÌËÊÌÂ„Ó Â„ËÒÚ‡ ‚ ‚ÂıÌËÈ: (ÌÂ ·ÓÎ¸¯Â 256 ÒËÏ‚ÓÎÓ‚) ";
+	cout << "–í–≤–µ–¥–∏—Ç–µ —Ç–µ–∫—Å—Ç –¥–ª—è –ø–µ—Ä–µ–≤–æ–¥–∞ –∏–∑ –Ω–∏–∂–Ω–µ–≥–æ —Ä–µ–≥–∏—Å—Ç—Ä–∞ –≤ –≤–µ—Ä—Ö–Ω–∏–π: (–Ω–µ –±–æ–ª—å—à–µ 256 —Å–∏–º–≤–æ–ª–æ–≤) ";
 	cin.getline(str, SIZE);
 	to_upper(str,SIZE);
-	cout << "¬‚Â‰ËÚÂ ÚÂÍÒÚ ‰Îˇ ÔÂÂ‚Ó‰‡ ËÁ ‚ÂıÌÂ„Ó Â„ËÒÚ‡ ‚ ÌËÊÌËÈ: (ÌÂ ·ÓÎ¸¯Â 256 ÒËÏ‚ÓÎÓ‚) ";
+	cout << "–í–≤–µ–¥–∏—Ç–µ —Ç–µ–∫—Å—Ç –¥–ª—è –ø–µ—Ä–µ–≤–æ–¥–∞ –∏–∑ –≤–µ—Ä—Ö–Ω–µ–≥–æ —Ä–µ–≥–∏—Å—Ç—Ä–∞ –≤ –Ω–∏–∂–Ω–∏–π: (–Ω–µ –±–æ–ª—å—à–µ 256 —Å–∏–º–≤–æ–ª–æ–≤) ";
 	cin.getline(str, SIZE);
 	to_lower(str, SIZE);
 	SetConsoleCP(866);
@@ -35,7 +35,7 @@ int stringLength(const char str[])
 	{
 		symbol++;
 	}
-	cout << "¬‚Â‰ÂÌÌ‡ˇ ÒÚÓÍ‡ ÒÓÒÚÓËÚ ËÁ " << symbol << " ÒËÏ‚ÓÎÓ‚ ";
+	cout << "–í–≤–µ–¥–µ–Ω–Ω–∞—è —Å—Ç—Ä–æ–∫–∞ —Å–æ—Å—Ç–æ–∏—Ç –∏–∑ " << symbol << " —Å–∏–º–≤–æ–ª–æ–≤ ";
 	return symbol;
 	cout << endl;
 }
@@ -47,10 +47,10 @@ void to_upper(char str[], const int SIZE)
 			str[i] += 'z' - 'Z';
 		if (str[i] > 'a' && str[i] < 'z')
 		 str[i] -= 'a' - 'A';
-		if (str[i] > '¿' && str[i] < 'ﬂ')
-			str[i] += 'ˇ' - 'ﬂ';
-		if (str[i] > '‡' && str[i] < 'ˇ')
-			str[i] -= '‡' - '¿';
+		if (str[i] > '–ê' && str[i] < '–Ø')
+			str[i] += '—è' - '–Ø';
+		if (str[i] > '–∞' && str[i] < '—è')
+			str[i] -= '–∞' - '–ê';
 	}
 	cout << str;
 	cout << endl;
@@ -63,10 +63,10 @@ void to_lower(char str[], const int SIZE)
 			str[i] += 'Z' - 'z';
 		if (str[i] > 'A' && str[i] < 'Z')
 			str[i] -= 'A' - 'a';
-		if (str[i] > '‡' && str[i] < 'ˇ')
-			str[i] += 'ﬂ' - 'ˇ';
-		if (str[i] > '¿' && str[i] < 'ﬂ')
-			str[i] -= '¿' - '‡';
+		if (str[i] > '–∞' && str[i] < '—è')
+			str[i] += '–Ø' - '—è';
+		if (str[i] > '–ê' && str[i] < '–Ø')
+			str[i] -= '–ê' - '–∞';
 	}
 	cout << str;
 }
