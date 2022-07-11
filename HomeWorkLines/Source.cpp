@@ -6,10 +6,12 @@ using namespace std;
 int stringLength(const char str[]);
 void to_upper(char str[], const int SIZE);
 void to_lower(char str[], const int SIZE);
+char* shrink(char str[]);
 bool is_palindrome(const char str[]);
 bool is_int_number(const char str[]);
 bool is_bin_number(const char str[]);
 bool is_hex_number(const char str[]);
+
 
 void main()
 {
@@ -21,12 +23,14 @@ void main()
 	cin.getline(str, SIZE);
 	stringLength(str);
 	cout << endl;
-	cout << "Введите текст для перевода из нижнего регистра в верхний: (не больше 256 символов) ";
+	/*cout << "Введите текст для перевода из нижнего регистра в верхний: (не больше 256 символов) ";
 	cin.getline(str, SIZE);
 	to_upper(str,SIZE);
 	cout << "Введите текст для перевода из верхнего регистра в нижний: (не больше 256 символов) ";
 	cin.getline(str, SIZE);
-	to_lower(str, SIZE);
+	to_lower(str, SIZE);*/
+	cout << "Строка без лишних пробелов: " << endl;
+	cout << shrink(str);
 	if (is_palindrome(str))
 		cout << "строка палиндром " << endl;
 	else
@@ -45,7 +49,6 @@ void main()
 	else 
 		cout << "строка " << str << " не является шестнадцатиричным числом числом. " << endl;
 	cout << endl;
-	bin_to_dec(str);
 	SetConsoleCP(866);
 }
 int stringLength(const char str[])
@@ -60,37 +63,48 @@ int stringLength(const char str[])
 	cout << endl;
 	
 }
-void to_upper(char str[], const int SIZE)
+//void to_upper(char str[], const int SIZE)
+//{
+//	for (int i = 0; i < SIZE - 1; i++)
+//	{
+//		if (str[i] > 'A' && str[i] < 'Z')
+//			str[i] += 'z' - 'Z';
+//		if (str[i] > 'a' && str[i] < 'z')
+//		 str[i] -= 'a' - 'A';
+//		if (str[i] > 'А' && str[i] < 'Я')
+//			str[i] += 'я' - 'Я';
+//		if (str[i] > 'а' && str[i] < 'я')
+//			str[i] -= 'а' - 'А';
+//	}
+//	cout << str;
+//	cout << endl;
+//}
+//void to_lower(char str[], const int SIZE)
+//{
+//	for (int i = 0; i < SIZE - 1; i++)
+//	{
+//		if (str[i] > 'a' && str[i] < 'z')
+//			str[i] += 'Z' - 'z';
+//		if (str[i] > 'A' && str[i] < 'Z')
+//			str[i] -= 'A' - 'a';
+//		if (str[i] > 'а' && str[i] < 'я')
+//			str[i] += 'Я' - 'я';
+//		if (str[i] > 'А' && str[i] < 'Я')
+//			str[i] -= 'А' - 'а';
+//	}
+//	cout << str;
+//	cout << endl;
+//}
+char* shrink(char str[])
 {
-	for (int i = 0; i < SIZE - 1; i++)
+	for (int i = 0; str[i]; i++)
 	{
-		if (str[i] > 'A' && str[i] < 'Z')
-			str[i] += 'z' - 'Z';
-		if (str[i] > 'a' && str[i] < 'z')
-		 str[i] -= 'a' - 'A';
-		if (str[i] > 'А' && str[i] < 'Я')
-			str[i] += 'я' - 'Я';
-		if (str[i] > 'а' && str[i] < 'я')
-			str[i] -= 'а' - 'А';
+		while (str[i] == ' ' && str[i + 1] == ' ')
+		{
+			for (int j = i + 1; str[j]; j++) str[j] = str[j + 1];
+		}
 	}
-	cout << str;
-	cout << endl;
-}
-void to_lower(char str[], const int SIZE)
-{
-	for (int i = 0; i < SIZE - 1; i++)
-	{
-		if (str[i] > 'a' && str[i] < 'z')
-			str[i] += 'Z' - 'z';
-		if (str[i] > 'A' && str[i] < 'Z')
-			str[i] -= 'A' - 'a';
-		if (str[i] > 'а' && str[i] < 'я')
-			str[i] += 'Я' - 'я';
-		if (str[i] > 'А' && str[i] < 'Я')
-			str[i] -= 'А' - 'а';
-	}
-	cout << str;
-	cout << endl;
+	return str;
 }
 bool is_palindrome(const char str[])
 {
