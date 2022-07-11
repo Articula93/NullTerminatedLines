@@ -6,8 +6,10 @@ using namespace std;
 int stringLength(const char str[]);
 void to_upper(char str[], const int SIZE);
 void to_lower(char str[], const int SIZE);
-
-
+bool is_palindrome(const char str[]);
+bool is_int_number(const char str[]);
+bool is_bin_number(const char str[]);
+bool is_hex_number(const char str[]);
 
 void main()
 {
@@ -25,8 +27,26 @@ void main()
 	cout << "Введите текст для перевода из верхнего регистра в нижний: (не больше 256 символов) ";
 	cin.getline(str, SIZE);
 	to_lower(str, SIZE);
-	SetConsoleCP(866);
+	if (is_palindrome(str))
+		cout << "строка палиндром " << endl;
+	else
+		cout << "строка не палиндром" << endl;
 
+	if(is_int_number(str))	
+		cout << "строка " << str << " является десятичным числом. " << endl;
+	else
+		cout << "строка " << str << " не является десятичным числом. " << endl;
+	if(is_bin_number(str))
+		cout << "строка " << str << " является двоичным числом. " << endl;
+	else
+		cout << "строка " << str << " не является двоичным числом. " << endl;
+	if(is_hex_number(str))
+		cout << "строка " << str << " является шестнадцатиричным числом. " << endl;
+	else 
+		cout << "строка " << str << " не является шестнадцатиричным числом числом. " << endl;
+	cout << endl;
+	bin_to_dec(str);
+	SetConsoleCP(866);
 }
 int stringLength(const char str[])
 {
@@ -38,6 +58,7 @@ int stringLength(const char str[])
 	cout << "Введенная строка состоит из " << symbol << " символов ";
 	return symbol;
 	cout << endl;
+	
 }
 void to_upper(char str[], const int SIZE)
 {
@@ -69,4 +90,61 @@ void to_lower(char str[], const int SIZE)
 			str[i] -= 'А' - 'а';
 	}
 	cout << str;
+	cout << endl;
+}
+bool is_palindrome(const char str[])
+{
+	int n = strlen(str);
+	for (int i = 0; i < n / 2; i++)
+	{
+		if (str[i] != str[n - i - 1])
+		{
+			return false;
+
+		}
+	}
+	return true;
+	cout << endl;
+}
+bool is_int_number(const char str[])
+{
+	int n = strlen(str);
+	for (int i = 0; i < n; i++)
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			return true;	
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+bool is_bin_number(const char str[])
+{
+	int n = strlen(str);
+	for (int i = 0; i < n; i++)
+	{
+		if (str[i] == '0' || str[i] == '1')
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+bool is_hex_number(const char str[])
+{
+	int n = strlen(str);
+	for (int i = 0; i < n; i++)
+	{
+		if ((str[i] >= '0' || str[i] <= '9') &&
+			(str[i] >= 'A' || str[i] <= 'F') &&
+			(str[i] >= 'a' || str[i] <= 'f'))
+			return true;
+	}
+	return false;
 }
