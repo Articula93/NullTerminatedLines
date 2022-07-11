@@ -23,12 +23,12 @@ void main()
 	cin.getline(str, SIZE);
 	stringLength(str);
 	cout << endl;
-	/*cout << "Введите текст для перевода из нижнего регистра в верхний: (не больше 256 символов) ";
+	cout << "Введите текст для перевода из нижнего регистра в верхний: (не больше 256 символов) ";
 	cin.getline(str, SIZE);
 	to_upper(str,SIZE);
 	cout << "Введите текст для перевода из верхнего регистра в нижний: (не больше 256 символов) ";
 	cin.getline(str, SIZE);
-	to_lower(str, SIZE);*/
+	to_lower(str, SIZE);
 	cout << "Строка без лишних пробелов: " << endl;
 	cout << shrink(str);
 	if (is_palindrome(str))
@@ -63,38 +63,38 @@ int stringLength(const char str[])
 	cout << endl;
 	
 }
-//void to_upper(char str[], const int SIZE)
-//{
-//	for (int i = 0; i < SIZE - 1; i++)
-//	{
-//		if (str[i] > 'A' && str[i] < 'Z')
-//			str[i] += 'z' - 'Z';
-//		if (str[i] > 'a' && str[i] < 'z')
-//		 str[i] -= 'a' - 'A';
-//		if (str[i] > 'А' && str[i] < 'Я')
-//			str[i] += 'я' - 'Я';
-//		if (str[i] > 'а' && str[i] < 'я')
-//			str[i] -= 'а' - 'А';
-//	}
-//	cout << str;
-//	cout << endl;
-//}
-//void to_lower(char str[], const int SIZE)
-//{
-//	for (int i = 0; i < SIZE - 1; i++)
-//	{
-//		if (str[i] > 'a' && str[i] < 'z')
-//			str[i] += 'Z' - 'z';
-//		if (str[i] > 'A' && str[i] < 'Z')
-//			str[i] -= 'A' - 'a';
-//		if (str[i] > 'а' && str[i] < 'я')
-//			str[i] += 'Я' - 'я';
-//		if (str[i] > 'А' && str[i] < 'Я')
-//			str[i] -= 'А' - 'а';
-//	}
-//	cout << str;
-//	cout << endl;
-//}
+void to_upper(char str[], const int SIZE)
+{
+	for (int i = 0; i < SIZE - 1; i++)
+	{
+		if (str[i] > 'A' && str[i] < 'Z')
+			str[i] += 'z' - 'Z';
+		if (str[i] > 'a' && str[i] < 'z')
+		 str[i] -= 'a' - 'A';
+		if (str[i] > 'А' && str[i] < 'Я')
+			str[i] += 'я' - 'Я';
+		if (str[i] > 'а' && str[i] < 'я')
+			str[i] -= 'а' - 'А';
+	}
+	cout << str;
+	cout << endl;
+}
+void to_lower(char str[], const int SIZE)
+{
+	for (int i = 0; i < SIZE - 1; i++)
+	{
+		if (str[i] > 'a' && str[i] < 'z')
+			str[i] += 'Z' - 'z';
+		if (str[i] > 'A' && str[i] < 'Z')
+			str[i] -= 'A' - 'a';
+		if (str[i] > 'а' && str[i] < 'я')
+			str[i] += 'Я' - 'я';
+		if (str[i] > 'А' && str[i] < 'Я')
+			str[i] -= 'А' - 'а';
+	}
+	cout << str;
+	cout << endl;
+}
 char* shrink(char str[])
 {
 	for (int i = 0; str[i]; i++)
